@@ -10,7 +10,10 @@ export const databaseConfig: IDatabaseConfig = {
         database: process.env.DB_NAME_DEVELOPMENT,
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
-        dialect: process.env.DB_DIALECT
+        dialect: process.env.DB_DIALECT,
+        dialectOptions: {
+            ssl: true
+        }
     },
     test: {
         username: process.env.DB_USER,
@@ -18,13 +21,19 @@ export const databaseConfig: IDatabaseConfig = {
         database: process.env.DB_NAME_DEVELOPMENT,
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
-        dialect: process.env.DB_DIALECT
+        dialect: process.env.DB_DIALECT,
+        dialectOptions: {
+            ssl: true
+        }
     },
     production: {
         username: process.env.DB_USER,
         password: process.env.DB_PASS,
         database: process.env.DB_NAME_DEVELOPMENT,
         host: process.env.DB_HOST,
-        dialect: process.env.DB_DIALECT
+        dialect: process.env.DB_DIALECT,
+        dialectOptions: {
+            ssl: true
+        }
     }
 };

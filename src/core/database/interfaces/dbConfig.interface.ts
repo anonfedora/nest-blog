@@ -6,6 +6,7 @@ export interface IDatabaseConfigAttributes {
     port?: string | number;
     dialect?: string;
     urlDatabase?: string;
+    dialectOptions?: { ssl: boolean };
 }
 
 export interface IDatabaseConfig {
