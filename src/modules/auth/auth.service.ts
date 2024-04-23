@@ -10,7 +10,7 @@ export class AuthService {
         private readonly jwtService: JwtService
     ) {}
 
-    async validateUser(username: string, password: string) {
+    async validateUser(username: string, pass: string) {
         const user = await this.usersService.findOneByEmail(username);
         if (!user) {
             return null;
@@ -33,7 +33,7 @@ export class AuthService {
     public async create(user) {
         const pass = await this.hashPassword(user.password);
 
-        const newUser = await this.userService.create({
+        const newUser = await this.usersService.create({
             ...user,
             password: pass
         });
@@ -46,8 +46,8 @@ export class AuthService {
     }
 
     public async generateToken(user) {
-        const token = await this.jwtService.signAsyn(user);
-        return hash;
+        const token = await this.jwtService.signAsync(user);
+        return token;
     }
 
     public async hashPassword(password) {

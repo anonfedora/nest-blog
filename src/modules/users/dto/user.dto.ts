@@ -15,7 +15,7 @@ export class UserDTO {
     @MinLength(8)
     readonly password: string;
 
-    @IsNotEmpty(Gender, { message: "Gender must either be male or female" })
-    @IsEnum()
+    @IsNotEmpty()
+    @IsEnum(Gender, { message: "Gender must either be male or female" })
     readonly gender: Gender;
 }

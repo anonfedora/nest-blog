@@ -14,13 +14,13 @@ export class ValidateInputPipe extends ValidationPipe {
         } catch (error) {
             if (error instanceof BadRequestException) {
                 throw new UnprocessableEntityException(
-                    this.handleError(error.message.message)
+                    this.handleError(error.message)
                 );
             }
         }
     }
 
     private handleError(errors) {
-        return erro.map(error => error.constraints);
+        return errors.map(error => error.constraints);
     }
 }

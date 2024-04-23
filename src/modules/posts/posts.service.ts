@@ -1,6 +1,6 @@
 import { Injectable, Inject } from "@nestjs/common";
 import { Post } from "./post.entity";
-import { PostDTO } from "./dto/post.dto";
+import { PostDto } from "./dto/post.dto";
 import { User } from "../users/user.entity";
 import { POST_REPOSITORY } from "../../core/constants";
 
@@ -10,7 +10,7 @@ export class PostsService {
         @Inject(POST_REPOSITORY) private readonly postRepository: typeof Post
     ) {}
 
-    async create(post: PostDTO, userId): Promise<Post> {
+    async create(post: PostDto, userId): Promise<Post> {
         return await this.postRepository.create<Post>({ ...post, userId });
     }
 

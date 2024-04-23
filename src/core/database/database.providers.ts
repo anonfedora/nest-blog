@@ -22,10 +22,10 @@ export const databaseProviders = [
                 default:
                     config = databaseConfig.development;
             }
-            const sequlize = new Sequelize(config);
+            const sequelize = new Sequelize(config);
             sequelize.addModels([User, Post]);
-            await sequlize.sync();
-            return sequlize;
+            await sequelize.sync();
+            return sequelize;
         }
     }
 ];

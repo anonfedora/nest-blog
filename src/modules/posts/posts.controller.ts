@@ -44,7 +44,7 @@ export class PostsController {
     @Put(":id")
     async update(
         @Param("id") id: number,
-        @Body() post: PostDTO,
+        @Body() post: PostDto,
         @Request() req
     ): Promise<PostEntity> {
         const { numberOfAffectedRows, updatedPost } =
@@ -58,7 +58,7 @@ export class PostsController {
 
     @UseGuards(AuthGuard("jwt"))
     @Delete(":id")
-    async remove(@Param("id") id: number, @Request req) {
+    async remove(@Param("id") id: number, @Request() req) {
         const deleted = await this.postService.delete(id, req.user.id);
 
         if (deleted === 0) {
